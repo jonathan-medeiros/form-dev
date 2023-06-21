@@ -1,3 +1,4 @@
+import { KeyboardEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as C from './styles';
 import { useForm, FormActions } from '../../contexts/FormContext';
@@ -30,7 +31,13 @@ export const FormStep1 = () => {
         dispatch({
             type: FormActions.setName,
             payload: e.target.value
-        })
+        });
+    }
+
+    const handleKeyUp = (e: KeyboardEvent) =>{
+        if (e.code === 'Enter' && state.name !== ''){
+            navigate('/step2');
+        }
     }
 
     return (
@@ -49,6 +56,7 @@ export const FormStep1 = () => {
                     autoFocus
                     value={state.name}
                     onChange={handleNameChange}
+                    onKeyUp={handleKeyUp}
                     />
                 </label>
 

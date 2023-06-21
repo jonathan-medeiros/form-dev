@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     
+    margin-bottom: 40px;
+    
     p{
         font-size: 13px;
         color: #B8B8D4;
@@ -26,6 +28,19 @@ export const Container = styled.div`
         padding: 20px 40px;
         color: #B8B8D4;
     }
+
+    @media (max-width: 980px){
+        h1 {
+            margin-top: 10px;
+        }
+        
+        hr{
+            height: 1px;
+            border: 0;
+            background-color: #16195C;
+            margin: 10px 0;
+        }
+    }
 `;
 
 export const InfoArea = styled.div`
@@ -38,7 +53,6 @@ export const Description = styled.div`
         font-size: 16px;
         color: #B8B8D4;
     }
-
 `;
 export const Result = styled.div`
     margin-left: 20px;

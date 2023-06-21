@@ -17,6 +17,8 @@ export const Container = styled.div`
 
     @media (max-width: 980px){
         padding-left: 40px;
-        padding-top: 20px;
+        padding-bottom: 0;
+        margin-top: 20px;
+        border-bottom: 6px solid #16195C;
     }
 `;

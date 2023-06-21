@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    margin-bottom: 40px;
     
     p{
         font-size: 13px;
@@ -57,5 +58,14 @@ export const Container = styled.div`
         text-decoration: none;
         padding: 20px 40px;
         color: #B8B8D4;
+    }
+
+    @media (max-width: 980px){
+        hr{
+            height: 1px;
+            border: 0;
+            background-color: #16195C;
+            margin: 10px 0;
+        }
     }
 `;

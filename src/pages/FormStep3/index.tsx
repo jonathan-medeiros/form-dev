@@ -1,3 +1,4 @@
+import { useRef, KeyboardEvent } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import * as C from './styles';
 import { useForm, FormActions } from '../../contexts/FormContext';
@@ -9,6 +10,7 @@ export const FormStep3 = () => {
 
     const navigate = useNavigate();
     const { state, dispatch } = useForm();
+    const inputGithubRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
         if (state.name === '') {
@@ -44,6 +46,20 @@ export const FormStep3 = () => {
         })
     }
 
+    const handleKeyUpEmail = (e: KeyboardEvent) =>{
+        if (e.code === 'Enter' && state.email !== ''){
+            if (inputGithubRef.current !== null){
+                inputGithubRef.current.focus();
+            }
+        }
+    }
+
+    const handleKeyUpGithub = (e: KeyboardEvent) =>{
+        if (e.code === 'Enter' && state.email !== ''){
+            navigate('/step4');
+        }
+    }
+
     return (
         <Theme>
             <C.Container>
@@ -57,8 +73,10 @@ export const FormStep3 = () => {
                     Qual seu e-mail?
                     <input 
                     type='email'
+                    autoFocus
                     value={state.email}
                     onChange={handleEmailChange}
+                    onKeyUp={handleKeyUpEmail}
                     />
                 </label>
 
@@ -68,11 +86,13 @@ export const FormStep3 = () => {
                     type='url'
                     value={state.github}
                     onChange={handleGithubChange}
+                    ref={inputGithubRef}
+                    onKeyUp={handleKeyUpGithub}
                     />
                 </label>
 
                 <Link className='backButton' to='/step2'>Voltar</Link>
-                <button onClick={handleNextStep}>Finalizar Cadastro</button>
+                <button onClick={handleNextStep}>Finalizar</button>
 
             </C.Container>
         </Theme>

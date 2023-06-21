@@ -34,7 +34,7 @@ export const Page = styled.div`
     padding-top: 40px; 
 
     @media (max-width: 980px){
-        padding-top: 10px;
+        padding-top: 0;
         margin-right: 40px;
     }
 `;

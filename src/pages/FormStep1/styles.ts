@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    margin-bottom: 40px;
     
     p{
         font-size: 13px;
@@ -49,4 +50,14 @@ export const Container = styled.div`
         cursor: pointer;
         margin-top: 30px;
     }
+
+    @media (max-width: 980px){
+        hr{
+            height: 1px;
+            border: 0;
+            background-color: #16195C;
+            margin: 10px 0;
+        }
+    }
+    
 `;
